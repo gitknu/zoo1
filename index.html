@@ -138,10 +138,9 @@
         }
     }
 
-var overlay = document.querySelector('.overlay');
 
-// Add code to hide the overlay after 3 seconds
 setTimeout(function() {
+  var overlay = document.getElementById('overlay');
   overlay.style.opacity = 0;
   overlay.style.pointerEvents = 'none';
 
