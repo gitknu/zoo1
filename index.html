@@ -80,6 +80,7 @@
 <body>
   <!-- Add an audio element with the desired audio source -->
   <audio id="audio" src="albatros.wav"></audio>
+  <audio id="audio2" src="audio2.mp3"></audio>
   <div class="gif-container">
 <div class="overlay">
   <img class="overlay-image" src="hands_transp_white.gif" alt="Overlay Image">
@@ -93,6 +94,38 @@
   </div>
  <script>
     var audio = document.getElementById('audio');
+    var audio2 = document.getElementById('audio2');
+    var touchstartX = 0;
+    var touchstartY = 0;
+    var touchendX = 0;
+    var touchendY = 0;
+    var touchStartTime = 0;
+    var touchEndTime = 0;
+
+    var touchableElement = document.querySelector('.gif-container');
+
+    touchableElement.addEventListener('touchstart', function (event) {
+        touchstartX = event.changedTouches[0].screenX;
+        touchstartY = event.changedTouches[0].screenY;
+        touchStartTime = new Date().getTime();
+    }, false);
+
+    touchableElement.addEventListener('touchend', function (event) {
+        touchendX = event.changedTouches[0].screenX;
+        touchendY = event.changedTouches[0].screenY;
+        touchEndTime = new Date().getTime();
+        handleGesture();
+    }, false);
+
+    function handleGesture() {
+        if (touchendX < touchstartX) {
+            window.location.href = "https://google.com"; // Swiped Left
+        }
+
+        if ((touchEndTime - touchStartTime) > 3500) {
+            audio2.play(); // Long press on the right side
+        }
+    }
 
     function toggleAudio() {
       if (audio.paused) {
@@ -110,54 +143,24 @@
     // Rest of the code omitted for brevity
   </script>
   <script>
-    var touchstartX = 0;
-    var touchstartY = 0;
-    var touchendX = 0;
-    var touchendY = 0;
+    var overlay = document.querySelector('.overlay');
 
-    var touchableElement = document.querySelector('.gif-container');
+    setTimeout(function() {
+      overlay.style.opacity = 0;
+      overlay.style.pointerEvents = 'none';
 
-    touchableElement.addEventListener('touchstart', function (event) {
-        touchstartX = event.changedTouches[0].screenX;
-        touchstartY = event.changedTouches[0].screenY;
-    }, false);
-
-    touchableElement.addEventListener('touchend', function (event) {
-        touchendX = event.changedTouches[0].screenX;
-        touchendY = event.changedTouches[0].screenY;
-        handleGesture();
-    }, false);
-
-    function handleGesture() {
-        if (touchendX < touchstartX) {
-            window.location.href = "https://google.com"; // Swiped Left
-        }
-
-        if (touchendX > touchstartX) {
-            window.location.href = "https://example.com"; // Swiped Right
-        }
-    }
-
-var overlay = document.querySelector('.overlay');
-
-setTimeout(function() {
-  overlay.style.opacity = 0;
-  overlay.style.pointerEvents = 'none';
-
-  // Add code to hide the overlay after 2 seconds
-  setTimeout(function() {
-    overlay.style.opacity = 1;
-    overlay.style.pointerEvents = 'none';
-
-      // Add code to hide the overlay after 7 seconds
+      // Add code to hide the overlay after 2 seconds
       setTimeout(function() {
-        overlay.style.opacity = 0;
+        overlay.style.opacity = 1;
         overlay.style.pointerEvents = 'none';
-      }, 7000);
-  }, 2000);
-}, 0);
 
-
+          // Add code to hide the overlay after 7 seconds
+          setTimeout(function() {
+            overlay.style.opacity = 0;
+            overlay.style.pointerEvents = 'none';
+          }, 7000);
+      }, 2000);
+    }, 0);
   </script>
 </body>
 </html>
