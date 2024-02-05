@@ -26,37 +26,44 @@
       border-radius: 10%; /* Add this line to make the GIF rounded */
     }
   </style>
-  <script>
-    document.addEventListener('touchstart', handleTouchStart, false);
-    document.addEventListener('touchmove', handleTouchMove, false);
-
-    let xStart = null;
-
-    function handleTouchStart(event) {
-      const firstTouch = event.touches[0];
-      xStart = firstTouch.clientX;
-    }
-
-    function handleTouchMove(event) {
-      if (!xStart) {
-        return;
-      }
-
-      const xEnd = event.touches[0].clientX;
-      const xDiff = xStart - xEnd;
-
-      if (xDiff > 0) {
-        // Swipe left
-        window.location.href = 'https://google.com';
-      }
-
-      xStart = null;
-    }
-  </script>
 </head>
 <body>
   <div class="gif-container">
     <img class="gif" src="https://gifdb.com/images/high/square-cubes-transformation-animation-effect-357ufd90uhe2bv65.webp" alt="GIF">
   </div>
+
+  <script>
+    var touchstartX = 0;
+    var touchstartY = 0;
+    var touchendX = 0;
+    var touchendY = 0;
+
+    var touchableElement = document.querySelector('.gif-container');
+
+    touchableElement.addEventListener('touchstart', function (event) {
+        touchstartX = event.changedTouches[0].screenX;
+        touchstartY = event.changedTouches[0].screenY;
+    }, false);
+
+    touchableElement.addEventListener('touchend', function (event) {
+        touchendX = event.changedTouches[0].screenX;
+        touchendY = event.changedTouches[0].screenY;
+        handleGesture();
+    }, false);
+
+    function handleGesture() {
+        if (touchendX < touchstartX) {
+            window.location.href = "https://google.com"; // Swiped Left
+        }
+
+        if (touchendX > touchstartX) {
+            window.location.href = "https://example.com"; // Swiped Right
+        }
+
+        if (touchendY < touchstartY) {
+            window.location.href = "https://you.com"; // Swiped Up
+        }
+    }
+  </script>
 </body>
 </html>
