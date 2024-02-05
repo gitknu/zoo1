@@ -28,13 +28,16 @@
   </style>
   <script>
     function handleSwipe(event) {
-      if (event.deltaX > 0 && Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-        window.location.href = "https://google.com";
+      if (
+        (event.deltaX > 0 && Math.abs(event.deltaX) > Math.abs(event.deltaY)) ||
+        (event.touches && event.touches[0].clientX > 0 && Math.abs(event.touches[0].clientX) > Math.abs(event.touches[0].clientY))
+      ) {
+        window.location.replace("https://google.com");
       }
     }
   </script>
 </head>
-<body onwheel="handleSwipe(event)">
+<body onwheel="handleSwipe(event)" ontouchstart="handleSwipe(event)">
   <div class="gif-container">
     <img class="gif" src="https://gifdb.com/images/high/square-cubes-transformation-animation-effect-357ufd90uhe2bv65.webp" alt="GIF">
   </div>
