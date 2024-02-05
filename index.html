@@ -57,6 +57,8 @@
   </style>
 </head>
 <body>
+  <!-- Add an audio element with the desired audio source -->
+  <audio id="audio" src="https://samplelib.com/lib/preview/mp3/sample-15s.mp3"></audio>
   <div class="gif-container">
     <img class="gif" src="https://gifdb.com/images/high/square-cubes-transformation-animation-effect-357ufd90uhe2bv65.webp" alt="GIF">
   </div>
@@ -65,7 +67,24 @@
       <h1><b>Родина Diomedeidae<br>Альбатрос мандрівний<br>Diomedea axulans</b></h1>
       <p>Поширений у Південному океані, а також у південних час тинах Тихого, Індійського та Атлантичного океанів. Ізсучасних птахів він має найбільший розмах крил – до 3,5 м. Свою назву птах дістав за те, що більшу частину життя проводить у далеких мандрах, ширяючи над океанічними просторами далеко від берегів, де розмножується.</p>
   </div>
+ <script>
+    var audio = document.getElementById('audio');
 
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    // Add an event listener to reset the audio when it ends
+    audio.addEventListener('ended', function() {
+      audio.currentTime = 0;
+    });
+
+    // Rest of the code omitted for brevity
+  </script>
   <script>
     var touchstartX = 0;
     var touchstartY = 0;
