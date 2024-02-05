@@ -30,11 +30,15 @@
     function handleSwipe(event) {
       if (
         (event.deltaX > 0 && Math.abs(event.deltaX) > Math.abs(event.deltaY)) ||
-        (event.touches && event.touches[0].clientX > 0 && Math.abs(event.touches[0].clientX) > Math.abs(event.touches[0].clientY))
+        (event.touches && event.touches.length === 1 && event.touches[0].clientX > 0 && Math.abs(event.touches[0].clientX) > Math.abs(event.touches[0].clientY))
       ) {
         window.location.replace("https://google.com");
       }
     }
+
+    document.addEventListener("touchmove", function(event) {
+      event.preventDefault();
+    });
   </script>
 </head>
 <body onwheel="handleSwipe(event)" ontouchstart="handleSwipe(event)">
