@@ -133,20 +133,19 @@
         }
     }
 
- // Hide the overlay initially
-    overlay.style.opacity = 0;
-    overlay.style.pointerEvents = 'none';
+var overlay = document.querySelector('.overlay');
 
-    setTimeout(function() {
-      overlay.style.opacity = 1;
-      overlay.style.pointerEvents = 'auto';
-    }, 3500);
+// Add code to show the overlay after 3.5 seconds
+setTimeout(function() {
+  overlay.style.opacity = 1;
+  overlay.style.pointerEvents = 'auto';
+}, 3500);
 
-    // Add code to hide the overlay after 7 seconds
-    setTimeout(function() {
-      overlay.style.opacity = 0;
-      overlay.style.pointerEvents = 'none';
-    }, 7000);
+// Add code to hide the overlay after 7 seconds
+setTimeout(function() {
+  overlay.style.opacity = 0;
+  overlay.style.pointerEvents = 'none';
+}, 7000);
   </script>
 </body>
 </html>
