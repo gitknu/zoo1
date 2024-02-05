@@ -122,7 +122,7 @@
             window.location.href = "https://google.com"; // Swiped Left
         }
 
-        if ((touchEndTime - touchStartTime) > 3500) {
+        if (touchendX === touchstartX && (touchEndTime - touchStartTime) > 2500) {
             audio2.play(); // Long press on the right side
         }
     }
