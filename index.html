@@ -24,8 +24,15 @@
       border-radius: 10%; /* Add this line to make the GIF rounded */
     }
   </style>
+  <script>
+    function handleSwipe(event) {
+      if (event.deltaX > 0 && Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+        window.location.href = "https://google.com";
+      }
+    }
+  </script>
 </head>
-<body>
+<body onwheel="handleSwipe(event)">
   <div class="gif-container">
     <img class="gif" src="https://gifdb.com/images/high/square-cubes-transformation-animation-effect-357ufd90uhe2bv65.webp" alt="GIF">
   </div>
