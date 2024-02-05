@@ -46,14 +46,10 @@
       align-items: center;
       justify-content: center;
       border-radius: 10%; 
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.5);
       pointer-events: none;
       opacity: 1;
       transition: opacity 0.5s;
-    }
-
-    .overlay-image {
-            opacity: 0;
     }
 
     .center-text {
@@ -138,24 +134,25 @@
         }
     }
 
+var overlay = document.querySelector('.overlay');
 
 setTimeout(function() {
-  var overlay = document.getElementById('overlay');
   overlay.style.opacity = 0;
   overlay.style.pointerEvents = 'none';
 
-  // Add code to show the overlay after 3 seconds
+  // Add code to hide the overlay after 2 seconds
   setTimeout(function() {
     overlay.style.opacity = 1;
-    overlay.style.pointerEvents = 'auto';
+    overlay.style.pointerEvents = 'none';
 
-    // Add code to hide the overlay after 7 seconds
-    setTimeout(function() {
-      overlay.style.opacity = 0;
-      overlay.style.pointerEvents = 'none';
-    }, 7000);
+      // Add code to hide the overlay after 7 seconds
+      setTimeout(function() {
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = 'none';
+      }, 7000);
   }, 2000);
 }, 0);
+
 
   </script>
 </body>
