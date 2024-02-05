@@ -136,10 +136,6 @@
         if (touchendX > touchstartX) {
             window.location.href = "https://example.com"; // Swiped Right
         }
-
-        if (touchendX === touchstartX && (touchEndTime - touchStartTime) > 2500) {            
-          audio2.play(); // Long press on the right side
-        }
     }
 
 var overlay = document.querySelector('.overlay');
