@@ -26,6 +26,7 @@
       margin-top: 5vh;
       display: flex;
       justify-content: center;
+      position: relative;
     }
 
     .gif {
@@ -33,6 +34,21 @@
       height: auto;
       border-radius: 10%;
       /* Add this line to make the GIF rounded */
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 0.5s;
     }
 
     .center-text {
@@ -60,6 +76,9 @@
   <!-- Add an audio element with the desired audio source -->
   <audio id="audio" src="https://samplelib.com/lib/preview/mp3/sample-15s.mp3"></audio>
   <div class="gif-container">
+<div class="overlay">
+  <img class="overlay-image" src="hands_transp_white.gif" alt="Overlay Image">
+</div>
     <img class="gif" src="https://gifdb.com/images/high/square-cubes-transformation-animation-effect-357ufd90uhe2bv65.webp" alt="GIF">
   </div>
 
@@ -113,6 +132,13 @@
             window.location.href = "https://example.com"; // Swiped Right
         }
     }
+
+    // Add code to hide the overlay after 3 seconds
+    var overlay = document.querySelector('.overlay');
+    setTimeout(function() {
+      overlay.style.opacity = 0;
+      overlay.style.pointerEvents = 'none';
+    }, 3000);
   </script>
 </body>
 </html>
