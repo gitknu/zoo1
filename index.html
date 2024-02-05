@@ -78,30 +78,38 @@
   </style>
 </head>
 <body>
-  <audio id="audio" src="albatros.wav"></audio>
+  <audio id="audio1" src="albatros.wav"></audio>
   <audio id="audio2" src="https://samplelib.com/lib/preview/mp3/sample-15s.mp3"></audio>
   <div class="gif-container">
-    <div class="overlay" onclick="toggleAudio()">
-  <img class="overlay-image" src="hands_transp_white.gif" alt="Overlay Image">
+    <div class="overlay">
+  <img class="overlay-image" src="hands_transp_white.gif" alt="Overlay Image" onclick="toggleAudio2()">
 </div>
     <img class="gif" src="albatros_sqr.gif" alt="GIF">
   </div>
 
-  <div class="center-text" onclick="toggleAudio()">
+  <div class="center-text" onclick="toggleAudio1()">
       <h1><b><i>Родина Diomedeidae</i><br>Альбатрос мандрівний<br>Diomedea axulans</b></h1>
       <p>Поширений у Південному океані, а також у південних частинах Тихого, Індійського та Атлантичного океанів. Із сучасних птахів він має найбільший розмах крил – до 3,5 м. Свою назву птах дістав за те, що більшу частину життя проводить у далеких мандрах, ширяючи над океанічними просторами далеко від берегів, де розмножується.</p>
   </div>
  <script>
-     var audio = document.getElementById('audio');
+     var audio = document.getElementById('audio1');
     var audio2 = document.getElementById('audio2');
 
-    function toggleAudio() {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    }
+function toggleAudio1() {
+  if (audio1.paused) {
+    audio1.play();
+  } else {
+    audio1.pause();
+  }
+}
+
+function toggleAudio2() {
+  if (audio2.paused) {
+    audio2.play();
+  } else {
+    audio2.pause();
+  }
+}
 
     audio.addEventListener('ended', function() {
       audio.currentTime = 0;
