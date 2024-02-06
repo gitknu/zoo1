@@ -16,7 +16,7 @@
       background: linear-gradient(to right, #FAFFD1, #A1FFCE);
     }
 
-    .gif-container {
+    .exhibit_gif_3d {
       max-height: 40%;
       min-width: 80%;
       max-width: 80%;
@@ -33,7 +33,7 @@
     }
 
     .overlay,
-    .overlay2 {
+    .overlay_touch {
       position: absolute;
       top: 0;
       left: 0;
@@ -49,16 +49,17 @@
       transition: opacity 1.1s;
     }
 
+    .overlay-image, .overlay-image2 {
+              opacity: 1;
+              height: auto;
+    }
+
     .overlay-image {
-      opacity: 1;
       width: 50%;
-      height: auto;
     }
     
     .overlay-image2 {
-      opacity: 1;
       width: 40%;
-      height: auto;
     }
 
     .center-text {
@@ -84,39 +85,39 @@
   </style>
 </head>
 <body>
-  <audio id="audio1" src="albatros.wav"></audio>
-  <audio id="audio2" src="https://mingosounds.com/wp-content/uploads/2020/08/albatros.mp3"></audio>
-  <div class="gif-container" onclick="toggleAudio2()">
+  <audio id="audio_info" src="albatros.wav"></audio>
+  <audio id="audio_exhibit" src="https://mingosounds.com/wp-content/uploads/2020/08/albatros.mp3"></audio>
+  <div class="exhibit_gif_3d" onclick="toggleaudio_exhibit()">
     <div class="overlay">
       <img class="overlay-image" src="hands_transp_white.gif">
     </div>
-    <div class="overlay2">
+    <div class="overlay_touch">
       <img class="overlay-image2" src="https://gitknu.github.io/zoo1/circle_tran.gif" alt="Overlay Image2">
     </div>
     <img class="gif" src="albatros_sqr.gif" alt="GIF">
   </div>
 
-  <div class="center-text" onclick="toggleAudio1()">
+  <div class="center-text" onclick="toggleaudio_info()">
     <h1><b><i>Родина Diomedeidae</i><br>Альбатрос мандрівний<br>Diomedea axulans</b></h1>
     <p>Поширений у Південному океані, а також у південних частинах Тихого, Індійського та Атлантичного океанів. Із сучасних птахів він має найбільший розмах крил – до 3,5 м. Свою назву птах дістав за те, що більшу частину життя проводить у далеких мандрах, ширяючи над океанічними просторами далеко від берегів, де розмножується.</p>
   </div>
   <script>
-    var audio = document.getElementById('audio1');
-    var audio2 = document.getElementById('audio2');
+    var audio = document.getElementById('audio_info');
+    var audio_exhibit = document.getElementById('audio_exhibit');
 
-    function toggleAudio1() {
-      if (audio1.paused) {
-        audio1.play();
+    function toggleaudio_info() {
+      if (audio_info.paused) {
+        audio_info.play();
       } else {
-        audio1.pause();
+        audio_info.pause();
       }
     }
 
-    function toggleAudio2() {
-      if (audio2.paused) {
-        audio2.play();
+    function toggleaudio_exhibit() {
+      if (audio_exhibit.paused) {
+        audio_exhibit.play();
       } else {
-        audio2.pause();
+        audio_exhibit.pause();
       }
     }
 
@@ -124,11 +125,9 @@
       audio.currentTime = 0;
     });
 
-    audio2.addEventListener('ended', function() {
-      audio2.currentTime = 0;
+    audio_exhibit.addEventListener('ended', function() {
+      audio_exhibit.currentTime = 0;
     });
-
-    // Rest of the code omitted for brevity
   </script>
   <script>
     var touchstartX = 0;
@@ -136,7 +135,7 @@
     var touchendX = 0;
     var touchendY = 0;
 
-    var touchableElement = document.querySelector('.gif-container');
+    var touchableElement = document.querySelector('.exhibit_gif_3d');
 
     touchableElement.addEventListener('touchstart', function(event) {
       touchstartX = event.changedTouches[0].screenX;
@@ -176,19 +175,19 @@
       }, 2000);
     }, 0);
 
-    var overlay2 = document.querySelector('.overlay2');
+    var overlay_touch = document.querySelector('.overlay_touch');
 
     setTimeout(function() {
-      overlay2.style.opacity = 0;
-      overlay.style.pointerEvents = 'none';
+      overlay_touch.style.opacity = 0;
+      overlay_touch.style.pointerEvents = 'none';
 
       setTimeout(function() {
-        overlay2.style.opacity = 1;
-        overlay2.style.pointerEvents = 'none';
+        overlay_touch.style.opacity = 1;
+        overlay_touch.style.pointerEvents = 'none';
 
         setTimeout(function() {
-          overlay2.style.opacity = 0;
-          overlay2.style.pointerEvents = 'none';
+          overlay_touch.style.opacity = 0;
+          overlay_touch.style.pointerEvents = 'none';
         }, 2000);
       }, 10000);
     }, 0);
