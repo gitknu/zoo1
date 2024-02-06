@@ -3,7 +3,6 @@
 <head>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
-
     body {
       margin: 0;
       padding: 0;
@@ -15,7 +14,6 @@
       background: -webkit-linear-gradient(to right, #FAFFD1, #A1FFCE);
       background: linear-gradient(to right, #FAFFD1, #A1FFCE);
     }
-
     .exhibit_gif_3d {
       max-height: 40%;
       min-width: 80%;
@@ -25,13 +23,11 @@
       justify-content: center;
       position: relative;
     }
-
     .gif {
       width: 100%;
       height: auto;
       border-radius: 10%;
     }
-
     .overlay,
     .overlay_touch {
       position: absolute;
@@ -48,7 +44,6 @@
       opacity: 0;
       transition: opacity 1.1s;
     }
-
     .overlay-image, .overlay-image2 {
               opacity: 1;
               height: auto;
@@ -57,27 +52,21 @@
     .overlay-image {
       width: 50%;
     }
-    
     .overlay-image2 {
       width: 40%;
     }
-
     .center-text {
       text-align: center;
       font-family: 'Oswald', sans-serif;
     }
-
-    a,
-    a:visited {
+    a, a:visited {
       text-decoration: none;
       color: black;
     }
-
     h1 {
       margin-top: 0.7em;
       font-size: 2.5vh;
     }
-
     p {
       margin-bottom: 0.7em;
       font-size: 1.75vh;
@@ -112,7 +101,6 @@
         audio_info.pause();
       }
     }
-
     function toggleaudio_exhibit() {
       if (audio_exhibit.paused) {
         audio_exhibit.play();
@@ -124,7 +112,6 @@
     audio.addEventListener('ended', function() {
       audio.currentTime = 0;
     });
-
     audio_exhibit.addEventListener('ended', function() {
       audio_exhibit.currentTime = 0;
     });
@@ -134,14 +121,11 @@
     var touchstartY = 0;
     var touchendX = 0;
     var touchendY = 0;
-
     var touchableElement = document.querySelector('.exhibit_gif_3d');
-
     touchableElement.addEventListener('touchstart', function(event) {
       touchstartX = event.changedTouches[0].screenX;
       touchstartY = event.changedTouches[0].screenY;
     }, false);
-
     touchableElement.addEventListener('touchend', function(event) {
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
@@ -152,22 +136,18 @@
       if (touchendX < touchstartX) {
         window.location.href = "https://google.com";
       }
-
       if (touchendX > touchstartX) {
         window.location.href = "https://example.com";
       }
     }
 
     var overlay = document.querySelector('.overlay');
-
     setTimeout(function() {
       overlay.style.opacity = 0;
       overlay.style.pointerEvents = 'none';
-
       setTimeout(function() {
         overlay.style.opacity = 1;
         overlay.style.pointerEvents = 'none';
-
         setTimeout(function() {
           overlay.style.opacity = 0;
           overlay.style.pointerEvents = 'none';
@@ -176,15 +156,12 @@
     }, 0);
 
     var overlay_touch = document.querySelector('.overlay_touch');
-
     setTimeout(function() {
       overlay_touch.style.opacity = 0;
       overlay_touch.style.pointerEvents = 'none';
-
       setTimeout(function() {
         overlay_touch.style.opacity = 1;
         overlay_touch.style.pointerEvents = 'none';
-
         setTimeout(function() {
           overlay_touch.style.opacity = 0;
           overlay_touch.style.pointerEvents = 'none';
