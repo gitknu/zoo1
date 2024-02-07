@@ -8,14 +8,14 @@
             var h1_txt_3 = "Diomedea axulans";
             var p_txt_1 = "Поширений у Південному океані, а також у південних частинах Тихого, Індійського та Атлантичного океанів. Із сучасних птахів він має найбільший розмах крил – до 3,5 м. Свою назву птах дістав за те, що більшу частину життя проводить у далеких мандрах, ширяючи над океанічними просторами далеко від берегів, де розмножується.";
             var img_txt_1 = "albatros_sqr.gif";
-            var aud_txt_1 = "https://mingosounds.com/wp-content/uploads/2020/08/albatros.mp3";
+            var audio_exhibit = "https://mingosounds.com/wp-content/uploads/2020/08/albatros.mp3";
 
             document.getElementById("h1_el_1").textContent = h1_txt_1;
             document.getElementById("h1_el_2").textContent = h1_txt_2;
             document.getElementById("h1_el_3").textContent = h1_txt_3;
             document.getElementById("p_el_1").textContent = p_txt_1;
             document.getElementById("img_el_1").src = img_txt_1;
-            document.getElementById("aud_el_1").src = aud_txt_1;
+            document.getElementById("audio_exhibit").src = audio_exhibit;
         }
     </script>
   <title>Зоомузей</title>
@@ -94,7 +94,7 @@
   </style>
 </head>
 <body onload="updateContent()">
-  <audio id="audio_exhibit" id="aud_txt_1"></audio>
+  <audio id="audio_exhibit"></audio>
   <audio id="audio_info" src="albatros.wav"></audio>
   <div class="exhibit_gif_3d" onclick="toggleaudio_exhibit()">
     <div class="overlay">
