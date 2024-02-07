@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+      <script>
+        function updateContent() {
+            var h1_txt_1 = "<b><i>Родина Diomedeidae</i><br>Альбатрос мандрівний<br>Diomedea axulans</b>";
+            var p_txt_1 = "Поширений у Південному океані, а також у південних частинах Тихого, Індійського та Атлантичного океанів. Із сучасних птахів він має найбільший розмах крил – до 3,5 м. Свою назву птах дістав за те, що більшу частину життя проводить у далеких мандрах, ширяючи над океанічними просторами далеко від берегів, де розмножується.";
+            var img_txt_1 = "albatros_sqr.gif";
+            var aud_txt_1 = "https://samplelib.com/lib/preview/mp3/sample-15s.mp3";
+            document.getElementById("h1_el_1").textContent = h1_txt_1;
+            document.getElementById("p_el_1").textContent = p_txt_1;
+            document.getElementById("img_el_1").src = img_txt_1;
+            document.getElementById("aud_el_1").src = aud_txt_1;
+        }
+    </script>
+  <title>Зоомузей</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
     body {
@@ -75,7 +88,7 @@
     }
   </style>
 </head>
-<body>
+<body onload="updateContent()">
   <audio id="audio_info" src="albatros.wav"></audio>
   <audio id="audio_exhibit" src="https://mingosounds.com/wp-content/uploads/2020/08/albatros.mp3"></audio>
   <div class="exhibit_gif_3d" onclick="toggleaudio_exhibit()">
@@ -85,12 +98,12 @@
     <div class="overlay_touch">
       <img class="overlay-image2" src="circle_tran.gif">
     </div>
-    <img class="gif" src="albatros_sqr.gif">
+    <img class="gif" id="img_el_1">
   </div>
 
   <div class="center-text" onclick="toggleaudio_info()">
-    <h1><b><i>Родина Diomedeidae</i><br>Альбатрос мандрівний<br>Diomedea axulans</b></h1>
-    <p>Поширений у Південному океані, а також у південних частинах Тихого, Індійського та Атлантичного океанів. Із сучасних птахів він має найбільший розмах крил – до 3,5 м. Свою назву птах дістав за те, що більшу частину життя проводить у далеких мандрах, ширяючи над океанічними просторами далеко від берегів, де розмножується.</p>
+    <h1 id="h1_el_1"></h1>
+    <p id="p_el_1"></p>
   </div>
   <script>
     var audio = document.getElementById('audio_info');
